@@ -10,6 +10,20 @@ real Gmail mailbox through Google OAuth 2.0 when credentials are configured.
 > documents. Real Gmail send/receive works only after you create your own Google OAuth client and
 > connect an account. See [Security limitations](#security-limitations).
 
+## At a glance
+
+| Aspect | What is actually implemented |
+| --- | --- |
+| Frontend | React 18 (Create React App), Tailwind CSS, Framer Motion |
+| Backend | Python, FastAPI, server-rendered static build |
+| Mail integration | Gmail API through a server-side OAuth 2.0 web flow; requires your own Google OAuth client |
+| Encryption | AES-256-GCM for new paths; ML-KEM-768 only when `quantcrypt` is installed; DH is classical, not post-quantum |
+| Guest mode | Isolated in-memory sessions with real per-session AES-256-GCM envelopes |
+| Document vault | Mock DigiLocker serving synthetic PDFs; no government or Aadhaar integration |
+| Persistence | Local JSON files under `QMAIL_DATA_DIR`; single-process, not a production database |
+| Tests | Backend pytest suite (Gmail calls stubbed); frontend has no automated test suite |
+| Deployment | Docker/Render configuration is included; no verified public URL is claimed |
+
 ---
 
 ## Features
@@ -162,7 +176,7 @@ cd backend
 python -m pytest tests -q
 ```
 
-Last local run: **61 passed** (Python 3.8.0, FastAPI 0.115.14). The suite covers health/config,
+Last local run: **61 passed** (Python 3.8.0, FastAPI 0.115.14; re-verified 2026-10-28). The suite covers health/config,
 guest session lifecycle, sample inbox, decrypted message details, AES-GCM round trip, unique
 nonces, wrong-session and tamper rejection, demo send with encrypted attachment, guest isolation
 from authenticated endpoints, vault listing/detail/download/path-traversal rejection, Gmail/OAuth
