@@ -1,0 +1,4 @@
+# Optional post-quantum key encapsulation (ML-KEM-768).
+# The app runs without this package and falls back to the KME-symmetric path
+# for Level 3. Install with: pip install -r backend/requirements-pqc.txt
+quantcrypt

@@ -1,0 +1,31 @@
+node_modules
+build
+.git
+.gitignore
+_private_backup
+README.md
+run_project.bat
+
+# Python caches / virtualenvs
+**/__pycache__
+**/*.pyc
+.venv
+venv
+
+# Secrets and runtime state must never be baked into the image
+.env
+.env.*
+!.env.example
+backend/client_secret.json
+backend/token.json
+backend/mail_store.json
+backend/receiver_keys.json
+backend/seen_messages.json
+backend/kme_keys.json
+backend/chunk_keys.json
+backend/receiver_dh_private.txt
+backend/receiver_pqc_private.bin
+backend/receiver_pqc_public.bin
+backend/attachments/*
+!backend/attachments/.gitkeep
+backend/mock_digilocker/static/docs

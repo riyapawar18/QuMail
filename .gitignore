@@ -1,0 +1,77 @@
+# Node modules
+node_modules/
+
+# React build dependencies
+build/
+dist/
+
+# Python cache and environments
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+ENV/
+env/
+.venv/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local private-data backup created during the interview-prep cleanup
+_private_backup/
+
+# Runtime stores (created on demand, may contain private mail/keys)
+backend/mail_store.json
+backend/receiver_keys.json
+backend/seen_messages.json
+backend/kme_keys.json
+backend/chunk_keys.json
+backend/attachments/*
+!backend/attachments/.gitkeep
+
+# Real personal documents must never be served or committed
+backend/mock_digilocker/static/docs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+
+# Credentials & Sensitive Files
+client_secret.json
+kme_keys.json
+token.json
+receiver_dh_private.txt
+receiver_pqc_private.bin
+receiver_pqc_public.bin
+backend/receiver_pqc_private.bin
+backend/receiver_pqc_public.bin
+backend/receiver_dh_private.txt
+backend/token.json
+backend/client_secret.json
+backend/kme_keys.json
+**/client_secret.json
+**/kme_keys.json
+**/token.json
+**/*.bin
+**/*.txt
+!README.md
+!requirements.txt
+!requirements-dev.txt
+!requirements-pqc.txt
+!package.json
+!public/robots.txt
+!**/*.py
+!**/*.jsx
+!**/*.js
+!**/*.css
+!**/*.html

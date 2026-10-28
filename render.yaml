@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: qumail
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: QMAIL_DEMO_MODE
+        value: "1"
+      - key: QMAIL_DATA_DIR
+        value: /app/data
+      - key: FRONTEND_BUILD_DIR
+        value: /app/build
+      - key: LOG_LEVEL
+        value: INFO
+      # Set these in the Render dashboard (Environment → Secret File/Env Var).
+      # Paste the Web-application OAuth client JSON into this variable.
+      - key: GOOGLE_CLIENT_SECRET_JSON
+        sync: false
+      # Exact URI registered in Google Cloud Console, e.g.
+      # https://YOUR-SERVICE.onrender.com/auth/google/callback
+      - key: OAUTH_REDIRECT_URI
+        sync: false
